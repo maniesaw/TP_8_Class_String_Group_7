@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-Class string{
+class string
+{
   protected:
     int size_;
     const  size_t max_size_;
