@@ -8,13 +8,13 @@ class string
   protected:
     size_t size_;
     static  size_t MAX_SIZE;
-    char* data_;
+    char* data;
     size_t capacity_;
     static  size_t char_size_;//1
         
   public:
     //Constructors
-    string(const string&);
+    string(const string& mystring);
     string(char* p_str);
     string()=delete; 
     
