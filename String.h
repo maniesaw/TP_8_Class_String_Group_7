@@ -14,7 +14,7 @@ class string
         
   public:
     //Constructors
-    string(const string&);
+    string(const string& mystring);
     string(char* p_str);
     string()=delete; 
     
