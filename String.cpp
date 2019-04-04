@@ -3,12 +3,12 @@
 
 
   //Constructors
-string::string(const string& mystring)
-{
-  this->capacity_=mystring.capacity_;
-  this->data_=mystring.data_;
-  this->size_=mystring.size_;
-}
+  string::string(const string& mystring)
+  {
+    this->capacity_=mystring.capacity_;
+    this->data_=mystring.data_;
+    this->size_=mystring.size_;
+  }
   string::string(char* p_str)
   {
 
