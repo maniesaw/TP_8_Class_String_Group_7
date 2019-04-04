@@ -6,9 +6,10 @@
 class string
 {
   protected:
-    int size_;
-    const  size_t max_size_;
-    char* begin_;
+    size_t size_;
+    static  size_t MAX_SIZE;
+    char* data;
+    size_t capacity_;
     const int char_size_;//1
         
   public:
@@ -26,12 +27,12 @@ class string
     void resize(int n); //Cut the String
     bool empty() const ; //Return if the size of the String is 0.
     void reserve(size_t n); //Allocate the memory needed if n > capacity
-	void print(); 
+		void print(); 
 
     //Getters
     int size(); //Return size
     size_t length(); //Return the size in bytes
-    size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
+    static size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
 					//implementation limitations
     size_t capacity();//Return the current memory allocation for the String   
 
