@@ -10,7 +10,7 @@ class string
     static  size_t MAX_SIZE;
     char* data;
     size_t capacity_;
-    const int char_size_;//1
+    static  size_t char_size_;//1
         
   public:
     //Constructors
@@ -27,28 +27,29 @@ class string
     void resize(int n); //Cut the String
     bool empty() const ; //Return if the size of the String is 0.
     void reserve(size_t n); //Allocate the memory needed if n > capacity
-		void print(); 
+    void print();
 
     //Getters
     int size(); //Return size
     size_t length(); //Return the size in bytes
-    static size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
+    size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
 					//implementation limitations
     size_t capacity();//Return the current memory allocation for the String   
 
     //Operators
-    string& operator=(char c);
-    string& operator=(string& str);
-    string& operator=(char* p_c);
-
-    string operator+ (const char*   p_lhs, const string& rhs);
-    string operator+ (char          lhs, const string& rhs);
-    string operator+ (const string& lhs, const string& rhs);
-
+    string& operator= (char c);
+    string& operator= (string& str);
+    string& operator= (char* p_c);
 
   private:
   
-}
+};
 #endif //STRING_H
+
+//Operators
+
+string operator+ (const char*   p_lhs, const string& rhs);
+string operator+ (char          lhs, const string& rhs);
+string operator+ (const string& lhs, const string& rhs);
 
 
