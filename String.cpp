@@ -9,7 +9,9 @@
   }
   string::string(char* p_str)
   {
-
+		if(data_!=NULL){ 
+				delete[] data_;
+		}
   }
 
   //Destructors
