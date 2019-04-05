@@ -13,8 +13,16 @@ int main()
   std::cout << mystring.capacity() << std::endl;
   std::cout << mystring.empty() << std::endl;
 
-  std::cout << mystring2.capacity() << std::endl;
-  std::cout << mystring2.empty() << std::endl;
+  std::cout << mystring.length() << std::endl;
+  std::cout << mystring.max_size() << std::endl;
+
+
+
+  // check copy constructor
+  string mystring2(mystring);
+  std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
+  std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
+  std::cout << (mystring2.length()==mystring.length()) << std::endl;
 
   std::cout << nullstring.capacity() << std::endl;
   std::cout << nullstring.empty() << std::endl;
@@ -29,5 +37,6 @@ int main()
   string b = p_strNull;
   std::cout << b.capacity() << std::endl;
   std::cout << b.empty() << std::endl;
+
   return 0;
 }
