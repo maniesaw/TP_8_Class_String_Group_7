@@ -7,5 +7,6 @@ int main()
   string mystring(p_str);
   std::cout << mystring.capacity() << std::endl;
   std::cout << mystring.empty() << std::endl;
+  std::cout << mystring.length() << std::endl;
   return 0;
 }
