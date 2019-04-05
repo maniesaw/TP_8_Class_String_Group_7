@@ -7,5 +7,11 @@ int main()
   string mystring(p_str);
   std::cout << mystring.capacity() << std::endl;
   std::cout << mystring.empty() << std::endl;
+
+  // check copy constructor
+  string mystring2(mystring);
+  std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
+  std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
+
   return 0;
 }
