@@ -11,13 +11,17 @@ string::string(const string& mystring)
 }
 
 string::string(char* p_str)
-{int i=0;
-while (p_str[i] != '\0'){
-    i=i+1;
+{
+  int i=0;
+  while (p_str[i] != '\0'){
+    ++i;
 }
-char *tab = new char[i+1];
-*tab = *p_str+ '\0';
-this -> data_ = tab;
+  char *tab = new char[i+1];
+  *tab = *p_str+ '\0';
+  this -> data_ = tab;
+  this ->size_ = i+1;
+  this -> capacity_ = this -> size_;
+  this -> MAX_SIZE = 100;
 }
 
 
