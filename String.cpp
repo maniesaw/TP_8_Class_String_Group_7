@@ -54,7 +54,7 @@ void string::resize(int n) //Cut the String
 
 bool string::empty() const  //Return if the size of the String is 0.
 {
-  bool res = (size_!=0)? true:false;
+  bool res = (size_==0)? true:false;
   return res;
 }
 
