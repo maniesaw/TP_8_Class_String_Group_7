@@ -11,13 +11,14 @@ string::string(const string& mystring)
 }
 
 string::string(char* p_str)
-{int i=0;
-while (p_str[i] != '\0'){
-    i=i+1;
-}
-char *tab = new char[i+1];
-*tab = *p_str+ '\0';
-this -> data_ = tab;
+{
+  int i=0;
+  while (p_str[i] != '\0'){
+      i=i+1;
+  }
+  char *tab = new char[i+1];
+  *tab = *p_str+ '\0';
+  this -> data_ = tab;
 }
 
 
@@ -75,9 +76,9 @@ size_t string::max_size() //Return the maximum potential length the string can r
 
 }
 
-size_t capacity()//Return the current memory allocation for the String
+size_t string::capacity()//Return the current memory allocation for the String
 {
-
+  return capacity_;
 }
 
 //Operators
