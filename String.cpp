@@ -84,6 +84,11 @@ size_t capacity()//Return the current memory allocation for the String
 //Operators
 string& string::operator= (char c)
 {
+  char* pc= new char(c);
+  string* thenewstring(*pc);
+  this -> ~string();
+  this -> string(thenewstring);
+  return *this;
 
 }
 
