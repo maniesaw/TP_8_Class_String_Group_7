@@ -49,6 +49,7 @@ void string::clear() //Reinitialisation of the String
 
 void string::resize(int n) //Cut the String
 {
+  
 
 }
 
@@ -102,7 +103,8 @@ string& string::operator= (string& str)
 
 string& string::operator= (char* p_c)
 {
-
+  string* res = new string(p_c);
+  return *res;
 }
 
 string operator+ (const char*   p_lhs, const string& rhs)
