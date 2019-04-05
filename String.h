@@ -30,7 +30,7 @@ class string
     void print();
 
     //Getters
-    int size(); //Return size
+    size_t size(); //Same as length
     size_t length(); //Return the size in bytes
     size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
 					//implementation limitations

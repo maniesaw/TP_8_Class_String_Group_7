@@ -70,9 +70,9 @@ void string::print()
 }
 
 //Getters
-int string::size() //Return size
+size_t string::size() //Same as length
 {
-
+  return size_*1; //Return in bytes
 }
 
 size_t string::length() //Return the size in bytes

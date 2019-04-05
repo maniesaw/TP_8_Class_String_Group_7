@@ -16,6 +16,12 @@ int main()
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
   std::cout << (mystring2.length()==mystring.length()) << std::endl;
 
+  // check size and length
+
+  std::cout << (mystring2.length()==mystring2.size()) << std::endl;
+
+
+
 
   return 0;
 }
