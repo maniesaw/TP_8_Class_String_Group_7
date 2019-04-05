@@ -8,5 +8,6 @@ int main()
   std::cout << mystring.capacity() << std::endl;
   std::cout << mystring.empty() << std::endl;
   std::cout << mystring.length() << std::endl;
+  std::cout << mystring.max_size() << std::endl;
   return 0;
 }
