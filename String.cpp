@@ -9,8 +9,10 @@ size_t string::MAX_SIZE = 100;
 string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
-  this->data_=mystring.data_;
   this->size_=mystring.size_;
+
+  this->data_= new char(*mystring.data_);
+
 }
 
 string::string(char* p_str)
@@ -92,7 +94,13 @@ size_t string::capacity()//Return the current memory allocation for the String
 //Operators
 string& string::operator= (char c)
 {
-
+  /**
+  char* pc= new char(c);
+  string* thenewstring(*pc);
+  this -> ~string();
+  this -> string(thenewstring);
+  return *this;
+  **/
 }
 
 string& string::operator= (string& str)
