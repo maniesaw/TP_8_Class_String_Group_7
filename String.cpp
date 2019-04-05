@@ -14,24 +14,29 @@ string::string(char* p_str)
 {
   int i=0;
   while (p_str[i] != '\0'){
-      i=i+1;
+    ++i;
   }
   char *tab = new char[i+1];
   *tab = *p_str+ '\0';
   this -> data_ = tab;
+  this ->size_ = i+1;
+  this -> capacity_ = this -> size_;
+  this -> MAX_SIZE = 100;
 }
 
 
 //Destructors
 string::~string()
-{if(data_!=NULL){
-  delete[] data_;
-}
+{
+  if(data_!=NULL){
+    delete[] data_;
+  }
 }
 
 //Methods
-char* string::c_str() //Convert to char array
+char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
+  return (this ->data_);
 
 }
 
