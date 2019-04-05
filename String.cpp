@@ -77,7 +77,7 @@ int string::size() //Return size
 
 size_t string::length() //Return the size in bytes
 {
-
+  return size_*1; //Return in bytes
 }
 
 size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes
