@@ -29,8 +29,9 @@ string::~string()
 }
 
 //Methods
-char* string::c_str() //Convert to char array
+char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
+  return (this ->data_);
 
 }
 
