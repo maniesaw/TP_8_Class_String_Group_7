@@ -3,6 +3,9 @@
 
 
 //Constructors
+size_t string::MAX_SIZE = 100;
+
+
 string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
@@ -21,7 +24,6 @@ string::string(char* p_str)
   this -> data_ = tab;
   this ->size_ = i+1;
   this -> capacity_ = this -> size_;
-  this -> MAX_SIZE = 100;
 }
 
 
