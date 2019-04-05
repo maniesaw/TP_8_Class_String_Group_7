@@ -14,6 +14,8 @@ int main()
   string mystring2(mystring);
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
+  std::cout << (mystring2.length()==mystring.length()) << std::endl;
+
 
   return 0;
 }
