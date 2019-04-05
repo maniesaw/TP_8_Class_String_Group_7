@@ -3,6 +3,9 @@
 
 
 //Constructors
+size_t string::MAX_SIZE = 100;
+
+
 string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
@@ -11,21 +14,25 @@ string::string(const string& mystring)
 }
 
 string::string(char* p_str)
-{int i=0;
-while (p_str[i] != '\0'){
-    i=i+1;
-}
-char *tab = new char[i+1];
-*tab = *p_str+ '\0';
-this -> data_ = tab;
+{
+  int i=0;
+  while (p_str[i] != '\0'){
+    ++i;
+  }
+  char *tab = new char[i+1];
+  *tab = *p_str+ '\0';
+  this -> data_ = tab;
+  this ->size_ = i+1;
+  this -> capacity_ = this -> size_;
 }
 
 
 //Destructors
 string::~string()
-{if(data_!=NULL){
-  delete[] data_;
-}
+{
+  if(data_!=NULL){
+    delete[] data_;
+  }
 }
 
 //Methods
@@ -47,7 +54,8 @@ void string::resize(int n) //Cut the String
 
 bool string::empty() const  //Return if the size of the String is 0.
 {
-
+  bool res = (size_!=0)? true:false;
+  return res;
 }
 
 void string::reserve(size_t n) //Allocate the memory needed if n > capacity
@@ -76,9 +84,9 @@ size_t string::max_size() //Return the maximum potential length the string can r
 
 }
 
-size_t capacity()//Return the current memory allocation for the String
+size_t string::capacity()//Return the current memory allocation for the String
 {
-
+  return capacity_;
 }
 
 //Operators
