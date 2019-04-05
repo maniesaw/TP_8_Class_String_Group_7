@@ -83,7 +83,7 @@ size_t string::length() //Return the size in bytes
 size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes
                                     //implementation limitations
 {
-
+  return MAX_SIZE;
 }
 
 size_t string::capacity()//Return the current memory allocation for the String
