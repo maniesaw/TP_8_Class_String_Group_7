@@ -2,24 +2,30 @@
 
 
 
-  //Constructors
+//Constructors
 string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
   this->data_=mystring.data_;
   this->size_=mystring.size_;
 }
-string::string(char* p_str)
-{
 
+string::string(char* p_str)
+{int i=0;
+while (p_str[i] != '\0'){
+    i=i+1;
 }
+char *tab = new char[i+1];
+*tab = *p_str+ '\0';
+this -> data_ = tab;
+}
+
 
 //Destructors
 string::~string()
-{
-  if(data_!=NULL){ 
-    delete[] data_;
-	}
+{if(data_!=NULL){
+  delete[] data_;
+}
 }
 
 //Methods
@@ -63,7 +69,8 @@ size_t string::length() //Return the size in bytes
 
 }
 
-size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes implementation limitations
+size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes
+                                    //implementation limitations
 {
 
 }
