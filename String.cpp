@@ -40,7 +40,13 @@ string::~string()
 //Methods
 char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
-  return (this ->data_);
+  char* pchar = new char[this ->size_ ]; // NEW
+
+  for (int i=0; i<this ->size_ ;++i)
+  {
+  pchar[i]= this -> data_[i];
+  }
+  return (pchar);
 
 }
 
