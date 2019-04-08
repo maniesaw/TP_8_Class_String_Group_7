@@ -57,6 +57,5 @@ int main()
   std::cout << (e.capacity()==1) << std::endl;
   std::cout << (e.empty()==1) << std::endl;
 
-
   return 0;
 }
