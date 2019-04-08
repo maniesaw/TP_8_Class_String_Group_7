@@ -12,7 +12,7 @@ int main()
   std::cout << (mystring.capacity()==6) << std::endl;
   std::cout << not mystring.empty() << std::endl;
 
-  std::cout << (mystring.length()==6) << std::endl;
+  std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
 
 
@@ -30,9 +30,9 @@ int main()
 
 
 
-  std::cout << nullstring.capacity() << std::endl;
-  std::cout << nullstring.empty() << std::endl;
-
+  std::cout << (nullstring.capacity()== 1) << std::endl;
+  std::cout << (nullstring.empty()==1) << std::endl;
+  std::cout << (nullstring.size()==0) << std::endl;
 
 
   // test of operator =(char* p_c)

@@ -24,8 +24,8 @@ string::string(char* p_str)
   char *tab = new char[i+1];
   *tab = *p_str+ '\0';
   this -> data_ = tab;
-  this ->size_ = i+1;
-  this -> capacity_ = this -> size_;
+  this ->size_ = i;
+  this -> capacity_ = this -> size_+1;
 }
 
 
