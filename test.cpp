@@ -14,6 +14,10 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
+  }
 
 
 
@@ -23,6 +27,10 @@ int main()
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
   std::cout << (mystring2.length()==mystring.length()) << std::endl;
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
+  }
 
 
   // check size and length
