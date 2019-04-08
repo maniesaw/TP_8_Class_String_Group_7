@@ -38,7 +38,7 @@ string::~string()
 }
 
 //Methods
-char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
+char* string::c_str() const //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
   char* pchar = new char[this ->size_ ]; // NEW
 
@@ -82,23 +82,23 @@ void string::print()
 }
 
 //Getters
-size_t string::size() //Same as length
+size_t string::size() const //Same as length
 {
   return size_*1; //Return in bytes
 }
 
-size_t string::length() //Return the size in bytes
+size_t string::length() const//Return the size in bytes
 {
   return size_*1; //Return in bytes
 }
 
-size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes
+size_t string::max_size() const //Return the maximum potential length the string can reach due to known system or library in bytes
                                     //implementation limitations
 {
   return MAX_SIZE;
 }
 
-size_t string::capacity()//Return the current memory allocation for the String
+size_t string::capacity() const //Return the current memory allocation for the String
 {
   return capacity_;
 }
@@ -138,7 +138,7 @@ string operator+ (char          lhs, const string& rhs)
 
 string operator+ (const string& lhs, const string& rhs)
 {
-
+ 
 }
 
 
