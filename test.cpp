@@ -34,6 +34,7 @@ int main()
   std::cout << nullstring.empty() << std::endl;
 
 
+
   // test of operator =(char* p_c)
 
   string a = p_str;
@@ -44,6 +45,18 @@ int main()
   string b = p_strNull;
   std::cout << (b.capacity()==1) << std::endl;
   std::cout << (b.empty()==1) << std::endl;
+
+// test of operator =(string& str)
+
+  string d = a;
+  std::cout << (mystring.capacity()==d.capacity()) << std::endl;
+  std::cout << (mystring.empty()==d.empty()) << std::endl;
+  std::cout << (mystring.length()==d.length()) << std::endl;
+ 
+  string e = b;
+  std::cout << (e.capacity()==1) << std::endl;
+  std::cout << (e.empty()==1) << std::endl;
+
 
   return 0;
 }
