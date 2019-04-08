@@ -11,8 +11,11 @@ string::string(const string& mystring)
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
 
-  this->data_= new char(*mystring.data_);
-
+  this->data_= new char[mystring.capacity_];
+  for(int i; i<(mystring.size_+1); ++i)
+  {
+    this->data_[i]=mystring.data_[i];
+   }
 }
 
 string::string(char* p_str)
@@ -40,13 +43,7 @@ string::~string()
 //Methods
 char* string::c_str() const //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
-  char* pchar = new char[this ->size_ ]; // NEW
-
-  for (int i=0; i<this ->size_ ;++i)
-  {
-  pchar[i]= this -> data_[i];
-  }
-  return (pchar);
+  return data_;
 
 }
 
