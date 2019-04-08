@@ -25,7 +25,7 @@ string::string(char* p_str)
   *tab = *p_str+ '\0';
   this -> data_ = tab;
   this ->size_ = i;
-  this -> capacity_ = this -> size_+1;
+  this -> capacity_ = this -> size_;
 }
 
 
@@ -72,8 +72,15 @@ bool string::empty() const  //Return if the size of the String is 0.
 
 void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
-
+  if(n>capacity_){
+    capacity_ = n;
+    char* tab = new char[this->capacity_];
+    tab = data_;
+    
+    delete[] data_;
+  }
 }
+
 void string::print()
 {
 
@@ -138,7 +145,8 @@ string operator+ (char          lhs, const string& rhs)
 
 string operator+ (const string& lhs, const string& rhs)
 {
- 
+
+
 }
 
 

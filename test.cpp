@@ -9,7 +9,7 @@ int main()
   char p_strNull[] = "";
   string nullstring(p_strNull);
 
-  std::cout << (mystring.capacity()==6) << std::endl;
+  std::cout << (mystring.capacity()==5) << std::endl;
   std::cout << not mystring.empty() << std::endl;
 
   std::cout << (mystring.length()==5) << std::endl;
@@ -30,7 +30,7 @@ int main()
 
 
 
-  std::cout << (nullstring.capacity()== 1) << std::endl;
+  std::cout << (nullstring.capacity()== 0) << std::endl;
   std::cout << (nullstring.empty()==1) << std::endl;
   std::cout << (nullstring.size()==0) << std::endl;
 
@@ -43,7 +43,7 @@ int main()
   std::cout << (mystring.length()==a.length()) << std::endl;
  
   string b = p_strNull;
-  std::cout << (b.capacity()==1) << std::endl;
+  std::cout << (b.capacity()==0) << std::endl;
   std::cout << (b.empty()==1) << std::endl;
 
 
@@ -65,6 +65,15 @@ int main()
   std::cout <<(myclearingstring.size()==0) << std::endl;
   std::cout <<(myclearingstring.capacity()==6) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
+
+
+  // reserve test
+  mystring.reserve(10);
+  std::cout << (mystring.capacity()==10) << std::endl;
+  std::cout << not mystring.empty() << std::endl;
+
+  std::cout << (mystring.length()==5) << std::endl;
+  std::cout << (mystring.max_size()==100) << std::endl;
 
   return 0;
 }
