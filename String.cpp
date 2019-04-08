@@ -22,10 +22,13 @@ string::string(char* p_str)
     ++i;
   }
   char *tab = new char[i+1];
-  *tab = *p_str+ '\0';
-  this -> data_ = tab;
+  for (int cond=0; cond<i+1; ++cond){
+    tab[cond] = p_str[cond];
+  }
+  tab[i+1]='\0';
+  this -> data_=tab;
   this ->size_ = i;
-  this -> capacity_ = this -> size_+1;
+  this -> capacity_ = this -> size_;
 }
 
 
@@ -130,12 +133,12 @@ string& string::operator= (char* p_c)
 
 string operator+ (const char*   p_lhs, const string& rhs)
 {
-
+  
 }
 
-string operator+ (char          lhs, const string& rhs)
+string operator+ (char lhs, const string& rhs)
 {
-
+  
 }
 
 string operator+ (const string& lhs, const string& rhs)
