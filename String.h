@@ -24,7 +24,7 @@ class string
     //Methods
     char* c_str() const; //Convert to char array
     void clear(); //Reinitialisation of the String
-    void resize(int n); //Cut the String
+    void resize(size_t n, char c); //Cut the String or add the c char to the String.
     bool empty() const ; //Return if the size of the String is 0.
     void reserve(size_t n); //Allocate the memory needed if n > capacity
     void print();

@@ -10,8 +10,12 @@ string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
+  this->data_ = new char[mystring.capacity_+1];
 
-  this->data_= new char(*mystring.data_);
+  for(int i=0; i<(mystring.size_+1); ++i)
+  {
+    this->data_[i]=mystring.data_[i];
+   }
 
 }
 
@@ -22,8 +26,11 @@ string::string(char* p_str)
     ++i;
   }
   char *tab = new char[i+1];
-  *tab = *p_str+ '\0';
-  this -> data_ = tab;
+  for (int cond=0; cond<i+1; ++cond){
+    tab[cond] = p_str[cond];
+  }
+  tab[i+1]='\0';
+  this -> data_=tab;
   this ->size_ = i;
   this -> capacity_ = this -> size_;
 }
@@ -40,13 +47,7 @@ string::~string()
 //Methods
 char* string::c_str() const //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
-  char* pchar = new char[this ->size_ ]; // NEW
-
-  for (int i=0; i<this ->size_ ;++i)
-  {
-  pchar[i]= this -> data_[i];
-  }
-  return (pchar);
+  return data_;
 
 }
 
@@ -58,7 +59,7 @@ void string::clear() //Reinitialisation of the String
 
 }
 
-void string::resize(int n) //Cut the String
+void string::resize(size_t n, char c) //Cut the String
 {
   
 
@@ -135,12 +136,12 @@ string& string::operator= (char* p_c)
 
 string operator+ (const char*   p_lhs, const string& rhs)
 {
-
+  
 }
 
-string operator+ (char          lhs, const string& rhs)
+string operator+ (char lhs, const string& rhs)
 {
-
+  
 }
 
 string operator+ (const string& lhs, const string& rhs)

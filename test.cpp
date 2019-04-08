@@ -14,14 +14,24 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
+  }
 
 
 
-  // check copy constructor
+
+  std::cout << "check copy constructor" << std::endl;
   string mystring2(mystring);
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
   std::cout << (mystring2.length()==mystring.length()) << std::endl;
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
+  }
+
 
   // check size and length
 
@@ -55,16 +65,23 @@ int main()
   std::cout << (mystring.length()==d.length()) << std::endl;
  
   string e = b;
-  std::cout << (e.capacity()==1) << std::endl;
+  std::cout << (e.capacity()==0) << std::endl;
   std::cout << (e.empty()==1) << std::endl;
+
 
   // clear test
   char p_strclear[]="clear";
   string myclearingstring(p_strclear);
   myclearingstring.clear();
   std::cout <<(myclearingstring.size()==0) << std::endl;
-  std::cout <<(myclearingstring.capacity()==6) << std::endl;
+  std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
+
+  string myclearingstring2(p_strNull);
+  myclearingstring2.clear();
+  std::cout <<(myclearingstring2.size()==0) << std::endl;
+  std::cout <<(myclearingstring2.capacity()==0) << std::endl;
+  std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
 
 
   // reserve test
