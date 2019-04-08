@@ -57,6 +57,16 @@ int main()
   std::cout << (e.capacity()==1) << std::endl;
   std::cout << (e.empty()==1) << std::endl;
 
+// clear test
+  char p_strclear[]="clear";
+  string myclearingstring(p_strclear);
+  myclearingstring.clear();
+  std::cout <<(myclearingstring.size()==0) << std::endl;
+  std::cout <<(myclearingstring.capacity()==6) << std::endl;
+  std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
+
+
+
 
   return 0;
 }

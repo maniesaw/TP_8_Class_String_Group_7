@@ -52,10 +52,8 @@ char* string::c_str() //Returns a pointer to an array that contains a null-termi
 
 void string::clear() //Reinitialisation of the String
 {
-  if(data_!=NULL){
-    delete[] data_;
-  }
-  this->data_= new char[this ->capacity_];
+
+  this->data_[0]='\0';
   this->size_=0;
 
 }
