@@ -22,7 +22,7 @@ class string
     ~string();
  
     //Methods
-    char* c_str(); //Convert to char array
+    char* c_str() const; //Convert to char array
     void clear(); //Reinitialisation of the String
     void resize(int n); //Cut the String
     bool empty() const ; //Return if the size of the String is 0.
@@ -30,11 +30,11 @@ class string
     void print();
 
     //Getters
-    size_t size(); //Same as length
-    size_t length(); //Return the size in bytes
-    size_t max_size(); //Return the maximum potential length the string can reach due to known system or library in bytes
+    size_t size() const ; //Same as length
+    size_t length() const ; //Return the size in bytes
+    size_t max_size() const; //Return the maximum potential length the string can reach due to known system or library in bytes
 					//implementation limitations
-    size_t capacity();//Return the current memory allocation for the String   
+    size_t capacity() const;//Return the current memory allocation for the String   
 
     //Operators
     string& operator= (char c);

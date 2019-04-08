@@ -11,8 +11,11 @@ string::string(const string& mystring)
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
 
-  this->data_= new char(*mystring.data_);
-
+  this->data_= new char[mystring.capacity_];
+  for(int i; i<(mystring.size_+1); ++i)
+  {
+    this->data_[i]=mystring.data_[i];
+   }
 }
 
 string::string(char* p_str)
@@ -41,24 +44,16 @@ string::~string()
 }
 
 //Methods
-char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
+char* string::c_str() const //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
-  char* pchar = new char[this ->size_ ]; // NEW
-
-  for (int i=0; i<this ->size_ ;++i)
-  {
-  pchar[i]= this -> data_[i];
-  }
-  return (pchar);
+  return data_;
 
 }
 
 void string::clear() //Reinitialisation of the String
 {
-  if(data_!=NULL){
-    delete[] data_;
-  }
-  this->data_= new char[this ->capacity_];
+
+  this->data_[0]='\0';
   this->size_=0;
 
 }
@@ -85,23 +80,23 @@ void string::print()
 }
 
 //Getters
-size_t string::size() //Same as length
+size_t string::size() const //Same as length
 {
   return size_*1; //Return in bytes
 }
 
-size_t string::length() //Return the size in bytes
+size_t string::length() const//Return the size in bytes
 {
   return size_*1; //Return in bytes
 }
 
-size_t string::max_size() //Return the maximum potential length the string can reach due to known system or library in bytes
+size_t string::max_size() const //Return the maximum potential length the string can reach due to known system or library in bytes
                                     //implementation limitations
 {
   return MAX_SIZE;
 }
 
-size_t string::capacity()//Return the current memory allocation for the String
+size_t string::capacity() const //Return the current memory allocation for the String
 {
   return capacity_;
 }
@@ -143,7 +138,7 @@ string operator+ (char lhs, const string& rhs)
 
 string operator+ (const string& lhs, const string& rhs)
 {
-
+ 
 }
 
 
