@@ -77,5 +77,10 @@ int main()
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
+  // test of resize
+  a.resize(10,'+');
+  std::cout << (a.size()==10) << std::endl;
+  std::cout << (a.capacity()==10) << std::endl;
+
   return 0;
 }
