@@ -77,8 +77,7 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
     capacity_ = n;
     char* tab = new char[this->capacity_];
     tab = data_;
-    
-    delete[] data_;
+    this ->data_ = tab;
   }
 }
 
