@@ -41,6 +41,7 @@ class string
     string& operator= (string& str);
     string& operator= (char* p_c);
 
+
   private:
   
 };

@@ -22,7 +22,7 @@ int main()
 
 
 
-  // check copy constructor
+  std::cout << "check copy constructor" << std::endl;
   string mystring2(mystring);
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
@@ -77,10 +77,26 @@ int main()
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
+
   // test of resize
   a.resize(10,'+');
   std::cout << (a.size()==10) << std::endl;
   std::cout << (a.capacity()==10) << std::endl;
+  string myclearingstring2(p_strNull);
+  myclearingstring2.clear();
+  std::cout <<(myclearingstring2.size()==0) << std::endl;
+  std::cout <<(myclearingstring2.capacity()==0) << std::endl;
+  std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
+
+
+  // reserve test
+  mystring.reserve(10);
+  std::cout << (mystring.capacity()==10) << std::endl;
+  std::cout << not mystring.empty() << std::endl;
+
+  std::cout << (mystring.length()==5) << std::endl;
+  std::cout << (mystring.max_size()==100) << std::endl;
+
 
   return 0;
 }
