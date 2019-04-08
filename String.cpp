@@ -117,6 +117,8 @@ string& string::operator= (char c)
 
 string& string::operator= (string& str)
 {
+  string* res = new string(str);
+  return *res;
 
 }
 
