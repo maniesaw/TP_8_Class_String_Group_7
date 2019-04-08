@@ -10,12 +10,13 @@ string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
+  this->data_ = new char[mystring.capacity_+1];
 
-  this->data_= new char[mystring.capacity_];
-  for(int i; i<(mystring.size_+1); ++i)
+  for(int i=0; i<(mystring.size_+1); ++i)
   {
     this->data_[i]=mystring.data_[i];
    }
+
 }
 
 string::string(char* p_str)
@@ -94,8 +95,15 @@ bool string::empty() const  //Return if the size of the String is 0.
 
 void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
-
+  if(n>capacity_){
+    capacity_ = n;
+    char* tab = new char[this->capacity_];
+    tab = data_;
+    
+    delete[] data_;
+  }
 }
+
 void string::print()
 {
 
@@ -160,7 +168,8 @@ string operator+ (char lhs, const string& rhs)
 
 string operator+ (const string& lhs, const string& rhs)
 {
- 
+
+
 }
 
 
