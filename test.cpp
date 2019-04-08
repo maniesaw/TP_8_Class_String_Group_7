@@ -22,7 +22,7 @@ int main()
 
 
 
-  // check copy constructor
+  std::cout << "check copy constructor" << std::endl;
   string mystring2(mystring);
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;

@@ -10,12 +10,13 @@ string::string(const string& mystring)
 {
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
+  this->data_ = new char[mystring.capacity_+1];
 
-  this->data_= new char[mystring.capacity_];
-  for(int i; i<(mystring.size_+1); ++i)
+  for(int i=0; i<(mystring.size_+1); ++i)
   {
     this->data_[i]=mystring.data_[i];
    }
+
 }
 
 string::string(char* p_str)
