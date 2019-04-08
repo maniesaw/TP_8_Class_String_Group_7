@@ -40,12 +40,23 @@ string::~string()
 //Methods
 char* string::c_str() //Returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.
 {
-  return (this ->data_);
+  char* pchar = new char[this ->size_ ]; // NEW
+
+  for (int i=0; i<this ->size_ ;++i)
+  {
+  pchar[i]= this -> data_[i];
+  }
+  return (pchar);
 
 }
 
 void string::clear() //Reinitialisation of the String
 {
+  if(data_!=NULL){
+    delete[] data_;
+  }
+  this->data_= new char[this ->capacity_];
+  this->size_=0;
 
 }
 
@@ -71,9 +82,9 @@ void string::print()
 }
 
 //Getters
-int string::size() //Return size
+size_t string::size() //Same as length
 {
-
+  return size_*1; //Return in bytes
 }
 
 size_t string::length() //Return the size in bytes
