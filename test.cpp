@@ -5,7 +5,6 @@ int main()
 {
   char p_str[]="hello";
   string mystring(p_str);
-  string mystring2(mystring);
 
   char p_strNull[] = "";
   string nullstring(p_strNull);
