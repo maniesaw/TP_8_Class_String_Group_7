@@ -77,5 +77,11 @@ int main()
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
+  string myclearingstring2(p_strNull);
+  myclearingstring2.clear();
+  std::cout <<(myclearingstring2.size()==0) << std::endl;
+  std::cout <<(myclearingstring2.capacity()==0) << std::endl;
+  std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
+
   return 0;
 }
