@@ -52,10 +52,8 @@ char* string::c_str() const //Returns a pointer to an array that contains a null
 
 void string::clear() //Reinitialisation of the String
 {
-  if(data_!=NULL){
-    delete[] data_;
-  }
-  this->data_= new char[this ->capacity_];
+
+  this->data_[0]='\0';
   this->size_=0;
 
 }
@@ -117,6 +115,8 @@ string& string::operator= (char c)
 
 string& string::operator= (string& str)
 {
+  string* res = new string(str);
+  return *res;
 
 }
 
