@@ -58,7 +58,7 @@ void string::clear() //Reinitialisation of the String
 
 }
 
-void string::resize(int n) //Cut the String
+void string::resize(size_t n, char c) //Cut the String
 {
   
 
