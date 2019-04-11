@@ -22,7 +22,7 @@ int main()
 
 
 
-  std::cout << "check copy constructor" << std::endl;
+  // check copy constructor
   string mystring2(mystring);
   std::cout << (mystring2.capacity()==mystring.capacity()) << std::endl;
   std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
@@ -78,10 +78,6 @@ int main()
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
 
-  // test of resize
-  a.resize(10,'+');
-  std::cout << (a.size()==10) << std::endl;
-  std::cout << (a.capacity()==10) << std::endl;
   string myclearingstring2(p_strNull);
   myclearingstring2.clear();
   std::cout <<(myclearingstring2.size()==0) << std::endl;
@@ -111,6 +107,12 @@ int main()
   {
     std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
   }
+  
+  // test of resize
+  a.resize(10,'+');
+  std::cout << (a.size()==10) << std::endl;
+  std::cout << (a.capacity()==10) << std::endl;
+
 
   // test operator+ (string)
   string mystring3("hello");
@@ -131,6 +133,13 @@ int main()
   std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
   std::cout << (not mystringAdd2.empty()) << std::endl;
   std::cout << (mystringAdd2.length()==mystring2.length()+mystring3.length()) << std::endl;
+
+  // test operator char + string
+  string mystringAdd3 = 'u' + mystring3;
+  std::cout << (mystringAdd3.capacity()==1+mystring3.capacity()) << std::endl;
+
+  string mystringAdd4= 'L' + mystringAdd3;
+  std::cout << (mystringAdd4.capacity()==1+mystringAdd3.capacity()) << std::endl;
 
 
   return 0;

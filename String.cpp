@@ -63,6 +63,7 @@ void string::resize(size_t n, char c) //Cut the String
     for (int cond=0; cond<n+1; ++cond){
       a[cond] = data_[cond];
     }
+    delete[] data_;
     a[n+1] = '\0';
     data_ = a;
     size_ = n;
@@ -76,6 +77,7 @@ void string::resize(size_t n, char c) //Cut the String
     for (int bouc =size_; bouc<n; ++bouc){
       a[bouc] = c;  
     }
+    delete[] data_;
     a[n+1] = '\0'; 
     data_ = a;
     size_ = n;
@@ -99,6 +101,7 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
       tab[i] = data_[i];
     }
     delete[] data_;
+
     this ->data_ = tab;
   }
 }
@@ -160,8 +163,25 @@ string operator+ (const char*   p_lhs, const string& rhs)
 
 string operator+ (char lhs, const string& rhs)
 {
-  
+  if(1+rhs.size()<rhs.max_size()){
+    char tab[1+rhs.size()];
+    int i;
+    int j=0;
+    for (i=0; i<=rhs.size(); ++i){
+      if(i<rhs.size()){
+        tab[i] =rhs.c_str()[i]; 
+      }else{
+        tab[i] = lhs;
+        ++j;
+      }
+    }
+    return string(tab);
+  } else {
+    std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+    return 0;
+  }
 }
+  
 
 string operator+ (const string& lhs, const string& rhs)
 {
