@@ -91,12 +91,12 @@ int main()
 
   // reserve test
   mystring.reserve(10);
+
   std::cout << (mystring.capacity()==10) << std::endl;
   std::cout << not mystring.empty() << std::endl;
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-
 
   for(int i=0; i<6; ++i)
   {
@@ -125,6 +125,7 @@ int main()
   std::cout << (mystringAdd.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
   std::cout << (not mystringAdd.empty()) << std::endl;
   std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
+
 
   string mystringAdd2(mystring2+mystring3);
   std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
