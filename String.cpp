@@ -63,6 +63,7 @@ void string::resize(size_t n, char c) //Cut the String
     for (int cond=0; cond<n+1; ++cond){
       a[cond] = data_[cond];
     }
+    delete[] data_;
     a[n+1] = '\0';
     data_ = a;
     size_ = n;
@@ -76,6 +77,7 @@ void string::resize(size_t n, char c) //Cut the String
     for (int bouc =size_; bouc<n; ++bouc){
       a[bouc] = c;  
     }
+    delete[] data_;
     a[n+1] = '\0'; 
     data_ = a;
     size_ = n;
@@ -94,7 +96,7 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
   if(n>capacity_){
     capacity_ = n;
-    char* tab = new char[this->capacity_];
+    char* tab = new char[capacity_];
     tab = data_;
     this ->data_ = tab;
   }
