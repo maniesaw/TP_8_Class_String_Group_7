@@ -14,7 +14,7 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-  for(int i=0; i<6; ++i)
+  for(int i=0; i<10; ++i)
   {
     std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
   }
@@ -77,10 +77,63 @@ int main()
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
+
+  string myclearingstring2(p_strNull);
+  myclearingstring2.clear();
+  std::cout <<(myclearingstring2.size()==0) << std::endl;
+  std::cout <<(myclearingstring2.capacity()==0) << std::endl;
+  std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
+
+
+  // reserve test
+  mystring.reserve(10);
+  std::cout << (mystring.capacity()==10) << std::endl;
+  std::cout << not mystring.empty() << std::endl;
+
+  std::cout << (mystring.length()==5) << std::endl;
+  std::cout << (mystring.max_size()==100) << std::endl;
+
+
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
+  }
+
+  mystring2.reserve(3);
+  std::cout << (mystring2.capacity()==5) << std::endl;
+  std::cout << (mystring2.empty()==mystring.empty()) << std::endl;
+  std::cout << (mystring2.length()==mystring.length()) << std::endl;
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
+  }
+  
   // test of resize
   a.resize(10,'+');
   std::cout << (a.size()==10) << std::endl;
   std::cout << (a.capacity()==10) << std::endl;
+
+
+  // test operator+ (string)
+  string mystring3("hello");
+  std::cout << (mystring3.capacity()==5) << std::endl;
+  std::cout << not mystring3.empty() << std::endl;
+
+  std::cout << (mystring3.length()==5) << std::endl;
+  std::cout << (mystring3.max_size()==100) << std::endl;
+
+  string mystringAdd = mystring2 + mystring3;
+
+  std::cout << (mystringAdd.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
+  std::cout << (not mystringAdd.empty()) << std::endl;
+  std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
+
+  string mystringAdd2(mystring2+mystring3);
+  std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
+  std::cout << (not mystringAdd2.empty()) << std::endl;
+  std::cout << (mystringAdd2.length()==mystring2.length()+mystring3.length()) << std::endl;
+
+
 
   return 0;
 }
