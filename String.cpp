@@ -96,8 +96,13 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
   if(n>capacity_){
     capacity_ = n;
-    char* tab = new char[capacity_];
-    tab = data_;
+    char* tab = new char[n];
+    for (int i=0; i<capacity_; ++i)
+    {
+		tab[i]=data_[i];
+	}
+    capacity_ = n;
+	delete[] data_;
     this ->data_ = tab;
   }
 }
