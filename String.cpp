@@ -1,7 +1,6 @@
 #include "String.h"
 
 
-
 //Constructors
 size_t string::MAX_SIZE = 100;
 
@@ -53,10 +52,8 @@ char* string::c_str() const //Returns a pointer to an array that contains a null
 
 void string::clear() //Reinitialisation of the String
 {
-
   this->data_[0]='\0';
   this->size_=0;
-
 }
 
 void string::resize(size_t n, char c) //Cut the String
@@ -103,10 +100,6 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
   }
 }
 
-void string::print()
-{
-
-}
 
 //Getters
 size_t string::size() const //Same as length
@@ -119,8 +112,7 @@ size_t string::length() const//Return the size in bytes
   return size_*1; //Return in bytes
 }
 
-size_t string::max_size() const //Return the maximum potential length the string can reach due to known system or library in bytes
-                                    //implementation limitations
+size_t string::max_size() const //Return the maximum potential length the string can reach due to known system or library in bytes implementation limitations
 {
   return MAX_SIZE;
 }
@@ -130,7 +122,8 @@ size_t string::capacity() const //Return the current memory allocation for the S
   return capacity_;
 }
 
-//Operators
+
+//Operators = 
 string& string::operator= (char c)
 {
   /**
@@ -155,6 +148,8 @@ string& string::operator= (char* p_c)
   return *res;
 }
 
+
+// Operators +
 string operator+ (const char*   p_lhs, const string& rhs)
 {
   
