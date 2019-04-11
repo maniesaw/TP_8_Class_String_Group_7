@@ -133,6 +133,12 @@ int main()
   std::cout << (not mystringAdd2.empty()) << std::endl;
   std::cout << (mystringAdd2.length()==mystring2.length()+mystring3.length()) << std::endl;
 
+  // test operator char + string
+  string mystringAdd3 = 'u' + mystring3;
+  std::cout << (mystringAdd3.capacity()==1+mystring3.capacity()) << std::endl;
+
+  string mystringAdd4= 'L' + mystringAdd3;
+  std::cout << (mystringAdd4.capacity()==1+mystringAdd3.capacity()) << std::endl;
 
 
   return 0;
