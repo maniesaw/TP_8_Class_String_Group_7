@@ -120,6 +120,10 @@ int main()
   std::cout << (not mystringAdd.empty()) << std::endl;
   std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
 
+  string mystringAdd2(mystring2+mystring3);
+  std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
+  std::cout << (not mystringAdd2.empty()) << std::endl;
+  std::cout << (mystringAdd2.length()==mystring2.length()+mystring3.length()) << std::endl;
 
   return 0;
 }

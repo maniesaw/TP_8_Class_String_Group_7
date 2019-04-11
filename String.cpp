@@ -145,20 +145,23 @@ string operator+ (char lhs, const string& rhs)
 
 string operator+ (const string& lhs, const string& rhs)
 {
-  char tab[lhs.size()+rhs.size()];
-  int i;
-  int j=0;
-  for (i=0; i<=lhs.size()+rhs.size(); ++i){
-    if(i<lhs.size()){
-      tab[i] = lhs.c_str()[i];
-    }else{
-      tab[i] = rhs.c_str()[j];
-      ++j;
+  if(lhs.size()+rhs.size()<lhs.max_size()){
+    char tab[lhs.size()+rhs.size()];
+    int i;
+    int j=0;
+    for (i=0; i<=lhs.size()+rhs.size(); ++i){
+      if(i<lhs.size()){
+        tab[i] = lhs.c_str()[i];
+      }else{
+        tab[i] = rhs.c_str()[j];
+        ++j;
+      }
     }
+    return string(tab);
+  } else {
+    std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+    return 0;
   }
-
-
-  return string(tab);
 }
 
 
