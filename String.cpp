@@ -162,8 +162,25 @@ string operator+ (const char*   p_lhs, const string& rhs)
 
 string operator+ (char lhs, const string& rhs)
 {
-  
+  if(1+rhs.size()<rhs.max_size()){
+    char tab[1+rhs.size()];
+    int i;
+    int j=0;
+    for (i=0; i<=rhs.size(); ++i){
+      if(i<rhs.size()){
+        tab[i] =rhs.c_str()[i]; 
+      }else{
+        tab[i] = lhs;
+        ++j;
+      }
+    }
+    return string(tab);
+  } else {
+    std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+    return 0;
+  }
 }
+  
 
 string operator+ (const string& lhs, const string& rhs)
 {
