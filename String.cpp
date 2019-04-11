@@ -61,8 +61,30 @@ void string::clear() //Reinitialisation of the String
 
 void string::resize(size_t n, char c) //Cut the String
 {
+  if (n< size_){
+    char *a = new char[n];
+    for (int cond=0; cond<n+1; ++cond){
+      a[cond] = data_[cond];
+    }
+    a[n+1] = '\0';
+    data_ = a;
+    size_ = n;
+  } 
+  else if (n > size_){
+    int length_char = size_;
+    char *a = new char[n];
+    for (int bouc =0; bouc<size_; ++bouc){
+      a[bouc] = data_[bouc];     
+    }
+    for (int bouc =size_; bouc<n; ++bouc){
+      a[bouc] = c;  
+    }
+    a[n+1] = '\0'; 
+    data_ = a;
+    size_ = n;
+    capacity_ = n;
+  }
   
-
 }
 
 bool string::empty() const  //Return if the size of the String is 0.

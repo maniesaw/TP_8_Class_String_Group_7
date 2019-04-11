@@ -77,6 +77,11 @@ int main()
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
 
+
+  // test of resize
+  a.resize(10,'+');
+  std::cout << (a.size()==10) << std::endl;
+  std::cout << (a.capacity()==10) << std::endl;
   string myclearingstring2(p_strNull);
   myclearingstring2.clear();
   std::cout <<(myclearingstring2.size()==0) << std::endl;
@@ -91,6 +96,7 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
+
 
   for(int i=0; i<6; ++i)
   {
@@ -124,6 +130,7 @@ int main()
   std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
   std::cout << (not mystringAdd2.empty()) << std::endl;
   std::cout << (mystringAdd2.length()==mystring2.length()+mystring3.length()) << std::endl;
+
 
   return 0;
 }
