@@ -14,7 +14,7 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-  for(int i=0; i<6; ++i)
+  for(int i=0; i<10; ++i)
   {
     std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
   }
@@ -105,6 +105,21 @@ int main()
   {
     std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
   }
+
+  // test operator+ (string)
+  string mystring3("hello");
+  std::cout << (mystring3.capacity()==5) << std::endl;
+  std::cout << not mystring3.empty() << std::endl;
+
+  std::cout << (mystring3.length()==5) << std::endl;
+  std::cout << (mystring3.max_size()==100) << std::endl;
+
+  string mystringAdd = mystring2 + mystring3;
+
+  std::cout << (mystringAdd.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
+  std::cout << (not mystringAdd.empty()) << std::endl;
+  std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
+
 
   return 0;
 }
