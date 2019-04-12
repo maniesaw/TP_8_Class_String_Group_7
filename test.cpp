@@ -47,12 +47,21 @@ int main()
 
   // test of operator =(char* p_c)
 
-  string a = p_str;
-  std::cout << (mystring.capacity()==a.capacity()) << std::endl;
-  std::cout << (mystring.empty()==a.empty()) << std::endl;
-  std::cout << (mystring.length()==a.length()) << std::endl;
+  char* p = "abcabc";
+
+  string a(mystring);
+
+  a  = "afez";
+  //a = p_str;
+
+
+  std::cout << (a.capacity()==4) << std::endl;
+  std::cout << (not(a.empty())) << std::endl;
+  std::cout << (a.length()==4) << std::endl;
  
-  string b = p_strNull;
+
+  string b (mystring);
+  b= p_strNull;
   std::cout << (b.capacity()==0) << std::endl;
   std::cout << (b.empty()==1) << std::endl;
 
@@ -97,18 +106,17 @@ int main()
   std::cout <<(myclearingstring2.capacity()==0) << std::endl;
   std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
 
-std::cout <<"llaa"<<std::endl;
+
 
   // reserve test
   mystring.reserve(10);
+
   std::cout << (mystring.capacity()==10) << std::endl;
   std::cout << not mystring.empty() << std::endl;
 
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-
-std::cout <<"llaa"<<std::endl;
 
 
   for(int i=0; i<6; ++i)
@@ -145,6 +153,7 @@ std::cout <<"llaa"<<std::endl;
   std::cout << (mystringAdd.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
   std::cout << (not mystringAdd.empty()) << std::endl;
   std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
+
 
   string mystringAdd2(mystring2+mystring3);
   std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;

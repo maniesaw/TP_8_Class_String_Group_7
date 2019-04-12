@@ -14,10 +14,12 @@ class string
         
   public:
     //Constructors
+
+    string()=default; 
+
     string(const string& mystring); //Constructor by copy
     string(const char *p_str); //Constructor with pointer of char
-    string()=delete; //Delete constructor by default
-    
+
     //Destructors
     ~string();
  
@@ -37,9 +39,11 @@ class string
     size_t capacity() const; //Return the current memory allocation for the String   
 
     //Operators
+
     string& operator= (char c); //Assignement of a char 
-    string& operator= (string& str); //Assignement of a string by reference
-    string& operator= (char* p_c); // Assignement of a char (by pointer)
+    string& operator= (const string& str); //Assignement of a string by reference
+    string& operator= (const char* p_c); // Assignement of a char (by pointer)
+
 
 
   private:

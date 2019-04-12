@@ -96,13 +96,13 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
   if(n>capacity_){
     capacity_ = n;
+
     char* tab = new char[n];
-    for (int i=0; i<capacity_; ++i)
-    {
-		tab[i]=data_[i];
-	}
+    for (int i=0; i<capacity_; ++i) {
+		  tab[i]=data_[i];
+	  }
     capacity_ = n;
-	delete[] data_;
+	  delete[] data_;
     this ->data_ = tab;
   }
 }
@@ -139,17 +139,29 @@ string& string::operator= (char c) //Assignement of a char
   return thenewstring;
 }
 
-string& string::operator= (string& str) //Assignement of a string by reference
+
+string& string::operator= (const string& str)//Assignement of a string by reference
+
 {
   string* res = new string(str);
   return *res;
 
 }
 
-string& string::operator= (char* p_c) // Assignement of a char (by pointer)
+
+string& string::operator= (const char* p_c)
+
 {
-  string* res = new string(p_c);
-  return *res;
+  int i=0;
+
+  while (p_c[i] != '\0'){
+    data_[i] = p_c[i];
+    ++i;
+  }
+  capacity_ = i;
+  size_ = i;
+
+  return *this;
 }
 
 
