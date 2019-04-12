@@ -5,7 +5,7 @@
 size_t string::MAX_SIZE = 100;
 
 
-string::string(const string& mystring)
+string::string(const string& mystring) //Create a string with a char by copy.
 {
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
@@ -18,7 +18,7 @@ string::string(const string& mystring)
 
 }
 
-string::string(char* p_str)
+string::string(const char* p_str) //Create a string with as parameters a char pointer.
 {
   int i=0;
   while (p_str[i] != '\0'){
@@ -131,7 +131,7 @@ size_t string::capacity() const //Return the current memory allocation for the S
 
 
 //Operators = 
-string& string::operator= (char c)
+string& string::operator= (char c) //Assignement of a char
 {
   /**
   char* pc= new char(c);
@@ -142,14 +142,18 @@ string& string::operator= (char c)
   **/
 }
 
-string& string::operator= (const string& str)
+
+string& string::operator= (const string& str)//Assignement of a string by reference
+
 {
   string* res = new string(str);
   return *res;
 
 }
 
+
 string& string::operator= (const char* p_c)
+
 {
   int i=0;
 
@@ -165,12 +169,41 @@ string& string::operator= (const char* p_c)
 
 
 // Operators +
-string operator+ (const char*   p_lhs, const string& rhs)
+string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by pointer ) and a string
 {
-  
+  int length_lhs=0;
+  while (p_lhs[length_lhs] != '\0')
+  {
+      ++length_lhs;
+  }
+  int new_length=length_lhs+rhs.size();
+  if(new_length<rhs.max_size())
+  {
+    char tab[new_length+1];
+    for (int i=0; i<length_lhs; ++i)
+    {
+      tab[i] =p_lhs[i];
+    }
+    int j = 0;
+    for (int i=length_lhs; i<new_length+1; ++i)
+    {
+      tab[i] = rhs.c_str()[j];
+      ++j;
+    }
+    return string(tab) ;
+  }
+  else
+  {
+      std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+      return 0;
+  }
+
 }
 
-string operator+ (char lhs, const string& rhs)
+  
+
+
+string operator+ (char lhs, const string& rhs) //Add of a char
 {
   if(1+rhs.size()<rhs.max_size()){
     char tab[1+rhs.size()];
@@ -192,7 +225,7 @@ string operator+ (char lhs, const string& rhs)
 }
   
 
-string operator+ (const string& lhs, const string& rhs)
+string operator+ (const string& lhs, const string& rhs) //Add of two strings
 {
   if(lhs.size()+rhs.size()<lhs.max_size()){
     char tab[lhs.size()+rhs.size()];

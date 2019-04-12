@@ -158,6 +158,29 @@ int main()
   std::cout << (mystringAdd4.capacity()==1+mystringAdd3.capacity()) << std::endl;
 
 
+  // test operator char* + string
+  char addtab[]= "hello";
+
+  string myaddingstring("polo");
+  string mystringAdd5 = addtab + myaddingstring;
+  std::cout << (mystringAdd5.capacity()==5+myaddingstring.capacity()) << std::endl;
+  for(int i=0; i<5; ++i)
+  {
+    std::cout << (mystringAdd5.c_str()[i]==addtab[i]) << std::endl;
+  }
+  for(int i=0; i<5; ++i)
+  {
+    std::cout << (mystringAdd5.c_str()[i+5]==myaddingstring.c_str()[i]) << std::endl;
+  }
+
+
+
+  /**
+  string mystringAdd6= addtab + myaddingstring;
+  std::cout << (mystringAdd6.capacity()==5+myaddingstring.capacity()) << std::endl;
+  std::cout << (mystringAdd6.c_str()) << std::endl;
+  **/
+
 
   return 0;
 }

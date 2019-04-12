@@ -14,10 +14,12 @@ class string
         
   public:
     //Constructors
-    string(const string& mystring);
-    string(char* p_str);
+
     string()=default; 
-    
+
+    string(const string& mystring); //Constructor by copy
+    string(const char *p_str); //Constructor with pointer of char
+
     //Destructors
     ~string();
  
@@ -34,12 +36,14 @@ class string
     size_t length() const ; //Return the size in bytes
     size_t max_size() const; //Return the maximum potential length the string can reach due to known system or library in bytes
 					//implementation limitations
-    size_t capacity() const;//Return the current memory allocation for the String   
+    size_t capacity() const; //Return the current memory allocation for the String   
 
     //Operators
-    string& operator= (char c);
-    string& operator= (const string& str);
-    string& operator= (const char* p_c);
+
+    string& operator= (char c); //Assignement of a char 
+    string& operator= (const string& str); //Assignement of a string by reference
+    string& operator= (const char* p_c); // Assignement of a char (by pointer)
+
 
 
   private:
@@ -49,8 +53,8 @@ class string
 
 //Operators
 
-string operator+ (const char*   p_lhs, const string& rhs);
-string operator+ (char          lhs, const string& rhs);
-string operator+ (const string& lhs, const string& rhs);
+string operator+ (const char*   p_lhs, const string& rhs); //Add of a char (by pointer ) and a string
+string operator+ (char          lhs, const string& rhs); //Add of a char
+string operator+ (const string& lhs, const string& rhs); //Add of two strings
 
 
