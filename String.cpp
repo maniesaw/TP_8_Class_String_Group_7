@@ -18,7 +18,7 @@ string::string(const string& mystring) //Create a string with a char by copy.
 
 }
 
-string::string(char* p_str) //Create a string with as parameters a char pointer.
+string::string(const char* p_str) //Create a string with as parameters a char pointer.
 {
   int i=0;
   while (p_str[i] != '\0'){
@@ -96,13 +96,13 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
 {
   if(n>capacity_){
     capacity_ = n;
+
     char* tab = new char[n];
-    for (int i=0; i<capacity_; ++i)
-    {
-		tab[i]=data_[i];
-	}
+    for (int i=0; i<capacity_; ++i) {
+		  tab[i]=data_[i];
+	  }
     capacity_ = n;
-	delete[] data_;
+	  delete[] data_;
     this ->data_ = tab;
   }
 }
@@ -133,16 +133,16 @@ size_t string::capacity() const //Return the current memory allocation for the S
 //Operators = 
 string& string::operator= (char c) //Assignement of a char
 {
-  /**
-  char* pc= new char(c);
-  string* thenewstring(*pc);
-  this -> ~string();
-  this -> string(thenewstring);
-  return *this;
-  **/
+  char tab[1];
+  tab[0]=c;
+  string thenewstring(tab);
+  return thenewstring;
 }
 
+
 string& string::operator= (const string& str) //Assignement of a string by reference
+
+
 {
   string* res = new string(str);
   return *res;
@@ -150,17 +150,55 @@ string& string::operator= (const string& str) //Assignement of a string by refer
 }
 
 string& string::operator= (const char* p_c) // Assignement of a char (by pointer)
+
 {
-  string* res = new string(p_c);
-  return *res;
+  int i=0;
+
+  while (p_c[i] != '\0'){
+    data_[i] = p_c[i];
+    ++i;
+  }
+  capacity_ = i;
+  size_ = i;
+
+  return *this;
 }
 
 
 // Operators +
 string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by pointer ) and a string
 {
-  
+  int length_lhs=0;
+  while (p_lhs[length_lhs] != '\0')
+  {
+      ++length_lhs;
+  }
+  int new_length=length_lhs+rhs.size();
+  if(new_length<rhs.max_size())
+  {
+    char tab[new_length+1];
+    for (int i=0; i<length_lhs; ++i)
+    {
+      tab[i] =p_lhs[i];
+    }
+    int j = 0;
+    for (int i=length_lhs; i<new_length+1; ++i)
+    {
+      tab[i] = rhs.c_str()[j];
+      ++j;
+    }
+    return string(tab) ;
+  }
+  else
+  {
+      std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+      return 0;
+  }
+
 }
+
+  
+
 
 string operator+ (char lhs, const string& rhs) //Add of a char
 {
