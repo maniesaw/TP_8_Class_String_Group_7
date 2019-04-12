@@ -144,9 +144,16 @@ string& string::operator= (const string& str) //Assignement of a string by refer
 
 
 {
-  string* res = new string(str);
-  return *res;
+  int i=0;
 
+  while (str.data_[i] != '\0'){
+    data_[i] =str.data_[i] ;
+    ++i;
+  }
+  capacity_ = i;
+  size_ = i;
+
+  return *this;
 }
 
 string& string::operator= (const char* p_c) // Assignement of a char (by pointer)
