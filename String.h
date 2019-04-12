@@ -15,7 +15,7 @@ class string
   public:
     //Constructors
     string(const string& mystring); //Constructor by copy
-    string(char* p_str); //Constructor with pointer of string
+    string(char* p_str); //Constructor with pointer of char
     string()=delete; //Delete constructor by default
     
     //Destructors

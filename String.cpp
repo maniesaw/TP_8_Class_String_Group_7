@@ -5,7 +5,7 @@
 size_t string::MAX_SIZE = 100;
 
 
-string::string(const string& mystring)
+string::string(const string& mystring) //Create a string with a char by copy.
 {
   this->capacity_=mystring.capacity_;
   this->size_=mystring.size_;
@@ -18,7 +18,7 @@ string::string(const string& mystring)
 
 }
 
-string::string(char* p_str)
+string::string(char* p_str) //Create a string with as parameters a char pointer.
 {
   int i=0;
   while (p_str[i] != '\0'){
@@ -131,7 +131,7 @@ size_t string::capacity() const //Return the current memory allocation for the S
 
 
 //Operators = 
-string& string::operator= (char c)
+string& string::operator= (char c) //Assignement of a char
 {
   /**
   char* pc= new char(c);
@@ -142,14 +142,14 @@ string& string::operator= (char c)
   **/
 }
 
-string& string::operator= (string& str)
+string& string::operator= (string& str) //Assignement of a string by reference
 {
   string* res = new string(str);
   return *res;
 
 }
 
-string& string::operator= (char* p_c)
+string& string::operator= (char* p_c) // Assignement of a char (by pointer)
 {
   string* res = new string(p_c);
   return *res;
@@ -157,12 +157,12 @@ string& string::operator= (char* p_c)
 
 
 // Operators +
-string operator+ (const char*   p_lhs, const string& rhs)
+string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by pointer ) and a string
 {
   
 }
 
-string operator+ (char lhs, const string& rhs)
+string operator+ (char lhs, const string& rhs) //Add of a char
 {
   if(1+rhs.size()<rhs.max_size()){
     char tab[1+rhs.size()];
@@ -184,7 +184,7 @@ string operator+ (char lhs, const string& rhs)
 }
   
 
-string operator+ (const string& lhs, const string& rhs)
+string operator+ (const string& lhs, const string& rhs) //Add of two strings
 {
   if(lhs.size()+rhs.size()<lhs.max_size()){
     char tab[lhs.size()+rhs.size()];
