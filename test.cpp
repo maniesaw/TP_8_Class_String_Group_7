@@ -67,8 +67,19 @@ int main()
   string e = b;
   std::cout << (e.capacity()==0) << std::endl;
   std::cout << (e.empty()==1) << std::endl;
-  
 
+  // test of operator =(char c)
+  char c ='a';
+  string myassignstring("hello");
+  myassignstring = c;
+  std::cout << (myassignstring.capacity()==1) << std::endl;
+  std::cout << (myassignstring.length()==2) << std::endl;
+  std::cout << (myassignstring.c_str()) << std::endl;
+
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
+  }
 
   // clear test
   char p_strclear[]="clear";

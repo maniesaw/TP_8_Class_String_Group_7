@@ -133,13 +133,10 @@ size_t string::capacity() const //Return the current memory allocation for the S
 //Operators = 
 string& string::operator= (char c) //Assignement of a char
 {
-  /**
-  char* pc= new char(c);
-  string* thenewstring(*pc);
-  this -> ~string();
-  this -> string(thenewstring);
-  return *this;
-  **/
+  char tab[1];
+  tab[0]=c;
+  string thenewstring(tab);
+  return thenewstring;
 }
 
 string& string::operator= (string& str) //Assignement of a string by reference
