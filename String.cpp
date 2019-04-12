@@ -18,7 +18,7 @@ string::string(const string& mystring) //Create a string with a char by copy.
 
 }
 
-string::string(char* p_str) //Create a string with as parameters a char pointer.
+string::string(const char* p_str) //Create a string with as parameters a char pointer.
 {
   int i=0;
   while (p_str[i] != '\0'){
