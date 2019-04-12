@@ -142,14 +142,14 @@ string& string::operator= (char c) //Assignement of a char
   **/
 }
 
-string& string::operator= (string& str) //Assignement of a string by reference
+string& string::operator= (const string& str) //Assignement of a string by reference
 {
   string* res = new string(str);
   return *res;
 
 }
 
-string& string::operator= (char* p_c) // Assignement of a char (by pointer)
+string& string::operator= (const char* p_c) // Assignement of a char (by pointer)
 {
   string* res = new string(p_c);
   return *res;
