@@ -159,8 +159,37 @@ string& string::operator= (char* p_c) // Assignement of a char (by pointer)
 // Operators +
 string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by pointer ) and a string
 {
-  
+  int length_lhs=0;
+  while (p_lhs[length_lhs] != '\0')
+  {
+      ++length_lhs;
+  }
+  int new_length=length_lhs+rhs.size();
+  if(new_length<rhs.max_size())
+  {
+    char tab[new_length+1];
+    for (int i=0; i<length_lhs; ++i)
+    {
+      tab[i] =p_lhs[i];
+    }
+    int j = 0;
+    for (int i=length_lhs; i<new_length+1; ++i)
+    {
+      tab[i] = rhs.c_str()[j];
+      ++j;
+    }
+    return string(tab) ;
+  }
+  else
+  {
+      std::cout << "Error : size of the new string is upper than MAX_SIZE" << std::endl;
+      return 0;
+  }
+
 }
+
+  
+
 
 string operator+ (char lhs, const string& rhs) //Add of a char
 {
