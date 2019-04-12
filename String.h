@@ -16,7 +16,7 @@ class string
     //Constructors
     string(const string& mystring);
     string(char* p_str);
-    string()=delete; 
+    string()=default; 
     
     //Destructors
     ~string();
@@ -38,8 +38,8 @@ class string
 
     //Operators
     string& operator= (char c);
-    string& operator= (string& str);
-    string& operator= (char* p_c);
+    string& operator= (const string& str);
+    string& operator= (const char* p_c);
 
 
   private:

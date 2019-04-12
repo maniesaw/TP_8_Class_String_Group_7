@@ -142,17 +142,25 @@ string& string::operator= (char c)
   **/
 }
 
-string& string::operator= (string& str)
+string& string::operator= (const string& str)
 {
   string* res = new string(str);
   return *res;
 
 }
 
-string& string::operator= (char* p_c)
+string& string::operator= (const char* p_c)
 {
-  string* res = new string(p_c);
-  return *res;
+  int i=0;
+
+  while (p_c[i] != '\0'){
+    data_[i] = p_c[i];
+    ++i;
+  }
+  capacity_ = i;
+  size_ = i;
+
+  return *this;
 }
 
 
