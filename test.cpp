@@ -47,28 +47,49 @@ int main()
 
   // test of operator =(char* p_c)
 
-  string a = p_str;
-  std::cout << (mystring.capacity()==a.capacity()) << std::endl;
-  std::cout << (mystring.empty()==a.empty()) << std::endl;
-  std::cout << (mystring.length()==a.length()) << std::endl;
+  char* p = "abcabc";
+
+  string a(mystring);
+
+  a  = "afez";
+  //a = p_str;
+
+
+  std::cout << (a.capacity()==4) << std::endl;
+  std::cout << (not(a.empty())) << std::endl;
+  std::cout << (a.length()==4) << std::endl;
  
-  string b = p_strNull;
+
+  string b (mystring);
+  b= p_strNull;
   std::cout << (b.capacity()==0) << std::endl;
   std::cout << (b.empty()==1) << std::endl;
 
 
   // test of operator =(string& str)
 
-  string d = a;
-  std::cout << (mystring.capacity()==d.capacity()) << std::endl;
-  std::cout << (mystring.empty()==d.empty()) << std::endl;
-  std::cout << (mystring.length()==d.length()) << std::endl;
+  a = mystring;
+  std::cout << (mystring.capacity()==a.capacity()) << std::endl;
+  std::cout << (mystring.empty()==a.empty()) << std::endl;
+  std::cout << (mystring.length()==a.length()) << std::endl;
  
-  string e = b;
-  std::cout << (e.capacity()==0) << std::endl;
-  std::cout << (e.empty()==1) << std::endl;
-  
+  a = nullstring;
+  std::cout << (a.capacity()==0) << std::endl;
+  std::cout << (a.empty()==1) << std::endl;
 
+
+  // test of operator =(char c)
+  char c ='a';
+  string myassignstring("hello");
+  myassignstring = c;
+  std::cout << (myassignstring.capacity()==1) << std::endl;
+  std::cout << (myassignstring.length()==2) << std::endl;
+  std::cout << (myassignstring.c_str()) << std::endl;
+
+  for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring2.c_str()[i]==p_str[i]) << std::endl;
+  }
 
   // clear test
   char p_strclear[]="clear";
@@ -86,18 +107,17 @@ int main()
   std::cout <<(myclearingstring2.capacity()==0) << std::endl;
   std::cout <<(myclearingstring2.c_str()[0]=='\0') << std::endl;
 
-std::cout <<"llaa"<<std::endl;
+
 
   // reserve test
   mystring.reserve(10);
+
   std::cout << (mystring.capacity()==10) << std::endl;
   std::cout << not mystring.empty() << std::endl;
 
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-
-std::cout <<"llaa"<<std::endl;
 
 
   for(int i=0; i<6; ++i)
@@ -135,6 +155,7 @@ std::cout <<"llaa"<<std::endl;
   std::cout << (not mystringAdd.empty()) << std::endl;
   std::cout << (mystringAdd.length()==mystring2.length()+mystring3.length()) << std::endl;
 
+
   string mystringAdd2(mystring2+mystring3);
   std::cout << (mystringAdd2.capacity()==mystring2.capacity()+mystring3.capacity()) << std::endl;
   std::cout << (not mystringAdd2.empty()) << std::endl;
@@ -148,6 +169,29 @@ std::cout <<"llaa"<<std::endl;
   string mystringAdd4= 'L' + mystringAdd3;
   std::cout << (mystringAdd4.capacity()==1+mystringAdd3.capacity()) << std::endl;
 
+
+  // test operator char* + string
+  char addtab[]= "hello";
+
+  string myaddingstring("polo");
+  string mystringAdd5 = addtab + myaddingstring;
+  std::cout << (mystringAdd5.capacity()==5+myaddingstring.capacity()) << std::endl;
+  for(int i=0; i<5; ++i)
+  {
+    std::cout << (mystringAdd5.c_str()[i]==addtab[i]) << std::endl;
+  }
+  for(int i=0; i<5; ++i)
+  {
+    std::cout << (mystringAdd5.c_str()[i+5]==myaddingstring.c_str()[i]) << std::endl;
+  }
+
+
+
+  /**
+  string mystringAdd6= addtab + myaddingstring;
+  std::cout << (mystringAdd6.capacity()==5+myaddingstring.capacity()) << std::endl;
+  std::cout << (mystringAdd6.c_str()) << std::endl;
+  **/
 
 
   return 0;
