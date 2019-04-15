@@ -28,7 +28,6 @@ string::string(const char* p_str) //Create a string with as parameters a char po
   for (size_t cond=0; cond<i+1; ++cond){
     tab[cond] = p_str[cond];
   }
-  tab[i]='\0';
   this -> data_=tab;
   this ->size_ = i;
   this -> capacity_ = this -> size_;

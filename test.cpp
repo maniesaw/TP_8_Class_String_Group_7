@@ -14,9 +14,13 @@ int main()
 
   std::cout << (mystring.length()==5) << std::endl;
   std::cout << (mystring.max_size()==100) << std::endl;
-  for(int i=0; i<5; ++i)
+  for(int i=0; i<6; ++i)
   {
     std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
+  }
+    for(int i=0; i<6; ++i)
+  {
+    std::cout << (mystring.c_str()[i]) << std::endl;
   }
 
 
