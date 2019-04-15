@@ -47,17 +47,22 @@ int main()
 
   // test of operator =(char* p_c)
 
-  char p[] = "abcabc";
 
   string a(mystring);
 
-  a  = "afez";
-  //a = p_str;
+  char paxcee_c[] = "afez";
 
+  a  = paxcee_c;
+  //a = p_str;
 
   std::cout << (a.capacity()==4) << std::endl;
   std::cout << (not(a.empty())) << std::endl;
   std::cout << (a.length()==4) << std::endl;
+
+  for(int i=0; i<5; ++i)
+  {
+    std::cout << (a.c_str()[i]==paxcee_c[i]) << std::endl;
+  }
 
 
   string b (mystring);
@@ -73,12 +78,17 @@ int main()
   std::cout << (mystring.empty()==a.empty()) << std::endl;
   std::cout << (mystring.length()==a.length()) << std::endl;
 
+    for(int i=0; i<5; ++i)
+  {
+    std::cout << (a.c_str()[i]==mystring.c_str()[i]) << std::endl;
+  }
+
   a = nullstring;
   std::cout << (a.capacity()==0) << std::endl;
   std::cout << (a.empty()==1) << std::endl;
 
 
-  std::cout << "test of operator =(char c)" << std::endl;
+  // "test of operator =(char c)"
 
   char c ='c';
   string myassignstring("hello");
@@ -194,13 +204,13 @@ int main()
     std::cout << (mystringAdd5.c_str()[i+5]==myaddingstring.c_str()[i]) << std::endl;
   }
 
+/**
+  char bigtab[]= "hello my name is remi and I am really proud to talk with you about this because it is really a huge honor to have the opportunity to talk about it in public !";
 
 
-  /**
-  string mystringAdd6= addtab + myaddingstring;
-  std::cout << (mystringAdd6.capacity()==5+myaddingstring.capacity()) << std::endl;
-  std::cout << (mystringAdd6.c_str()) << std::endl;
-  **/
+  string mystringAdd6= bigtab + myaddingstring;
+**/
+
 
 
   return 0;

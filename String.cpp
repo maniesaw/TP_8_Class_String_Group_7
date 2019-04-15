@@ -28,7 +28,7 @@ string::string(const char* p_str) //Create a string with as parameters a char po
   for (size_t cond=0; cond<i+1; ++cond){
     tab[cond] = p_str[cond];
   }
-  tab[i+1]='\0';
+  tab[i]='\0';
   this -> data_=tab;
   this ->size_ = i;
   this -> capacity_ = this -> size_;
@@ -149,6 +149,7 @@ string& string::operator= (const string& str) //Assignement of a string by refer
     data_[i] =str.data_[i] ;
     ++i;
   }
+  data_[i] = '\0';
   capacity_ = i;
   size_ = i;
 
@@ -164,6 +165,7 @@ string& string::operator= (const char* p_c) // Assignement of a char (by pointer
     data_[i] = p_c[i];
     ++i;
   }
+  data_[i] = '\0';
   capacity_ = i;
   size_ = i;
 
