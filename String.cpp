@@ -11,7 +11,7 @@ string::string(const string& mystring) //Create a string with a char by copy.
   this->size_=mystring.size_;
   this->data_ = new char[mystring.capacity_+1];
 
-  for(int i=0; i<(mystring.size_+1); ++i)
+  for(size_t i=0; i<(mystring.size_+1); ++i)
   {
     this->data_[i]=mystring.data_[i];
    }
@@ -20,12 +20,12 @@ string::string(const string& mystring) //Create a string with a char by copy.
 
 string::string(const char* p_str) //Create a string with as parameters a char pointer.
 {
-  int i=0;
+  size_t i=0;
   while (p_str[i] != '\0'){
     ++i;
   }
   char *tab = new char[i+1];
-  for (int cond=0; cond<i+1; ++cond){
+  for (size_t cond=0; cond<i+1; ++cond){
     tab[cond] = p_str[cond];
   }
   tab[i+1]='\0';
@@ -60,7 +60,7 @@ void string::resize(size_t n, char c) //Cut the String
 {
   if (n< size_){
     char *a = new char[n];
-    for (int cond=0; cond<n+1; ++cond){
+    for (size_t cond=0; cond<n+1; ++cond){
       a[cond] = data_[cond];
     }
     delete[] data_;
@@ -69,12 +69,11 @@ void string::resize(size_t n, char c) //Cut the String
     size_ = n;
   }
   else if (n > size_){
-    int length_char = size_;
     char *a = new char[n];
-    for (int bouc =0; bouc<size_; ++bouc){
+    for (size_t bouc =0; bouc<size_; ++bouc){
       a[bouc] = data_[bouc];
     }
-    for (int bouc =size_; bouc<n; ++bouc){
+    for (size_t bouc =size_; bouc<n; ++bouc){
       a[bouc] = c;
     }
     delete[] data_;
@@ -98,7 +97,7 @@ void string::reserve(size_t n) //Allocate the memory needed if n > capacity
     capacity_ = n;
 
     char* tab = new char[n];
-    for (int i=0; i<capacity_; ++i) {
+    for (size_t i=0; i<capacity_; ++i) {
 		  tab[i]=data_[i];
 	  }
     capacity_ = n;
@@ -175,21 +174,21 @@ string& string::operator= (const char* p_c) // Assignement of a char (by pointer
 // Operators +
 string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by pointer ) and a string
 {
-  int length_lhs=0;
+  size_t length_lhs=0;
   while (p_lhs[length_lhs] != '\0')
   {
       ++length_lhs;
   }
-  int new_length=length_lhs+rhs.size();
+  size_t new_length=length_lhs+rhs.size();
   if(new_length<rhs.max_size())
   {
     char tab[new_length+1];
-    for (int i=0; i<length_lhs; ++i)
+    for (size_t i=0; i<length_lhs; ++i)
     {
       tab[i] =p_lhs[i];
     }
     int j = 0;
-    for (int i=length_lhs; i<new_length+1; ++i)
+    for (size_t i=length_lhs; i<new_length+1; ++i)
     {
       tab[i] = rhs.c_str()[j];
       ++j;
@@ -211,7 +210,7 @@ string operator+ (char lhs, const string& rhs) //Add of a char
 {
   if(1+rhs.size()<rhs.max_size()){
     char tab[1+rhs.size()];
-    int i;
+    size_t i;
     int j=0;
     for (i=0; i<=rhs.size(); ++i){
       if(i<rhs.size()){
@@ -233,7 +232,7 @@ string operator+ (const string& lhs, const string& rhs) //Add of two strings
 {
   if(lhs.size()+rhs.size()<lhs.max_size()){
     char tab[lhs.size()+rhs.size()];
-    int i;
+    size_t i;
     int j=0;
     for (i=0; i<=lhs.size()+rhs.size(); ++i){
       if(i<lhs.size()){
