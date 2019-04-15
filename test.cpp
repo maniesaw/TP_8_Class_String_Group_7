@@ -19,7 +19,7 @@ int main()
     std::cout << (mystring.c_str()[i]==p_str[i]) << std::endl;
   }
 
-  
+
 
 
   // check copy constructor
@@ -47,7 +47,7 @@ int main()
 
   // test of operator =(char* p_c)
 
-  char* p = "abcabc";
+  char p[] = "abcabc";
 
   string a(mystring);
 
@@ -58,7 +58,7 @@ int main()
   std::cout << (a.capacity()==4) << std::endl;
   std::cout << (not(a.empty())) << std::endl;
   std::cout << (a.length()==4) << std::endl;
- 
+
 
   string b (mystring);
   b= p_strNull;
@@ -72,19 +72,28 @@ int main()
   std::cout << (mystring.capacity()==a.capacity()) << std::endl;
   std::cout << (mystring.empty()==a.empty()) << std::endl;
   std::cout << (mystring.length()==a.length()) << std::endl;
- 
+
   a = nullstring;
   std::cout << (a.capacity()==0) << std::endl;
   std::cout << (a.empty()==1) << std::endl;
 
 
-  // test of operator =(char c)
-  char c ='a';
+  std::cout << "test of operator =(char c)" << std::endl;
+
+  char c ='c';
   string myassignstring("hello");
   myassignstring = c;
-  std::cout << (myassignstring.capacity()==1) << std::endl;
-  std::cout << (myassignstring.length()==2) << std::endl;
-  std::cout << (myassignstring.c_str()) << std::endl;
+  std::cout << (myassignstring.capacity()==5) << std::endl;
+  std::cout << (myassignstring.length()==1) << std::endl;
+  std::cout << (myassignstring.c_str()[0]==c) << std::endl;
+  std::cout << (myassignstring.c_str()[1]=='\0') << std::endl;
+
+  myassignstring = 'a';
+  std::cout << (myassignstring.capacity()==5) << std::endl;
+  std::cout << (myassignstring.length()==1) << std::endl;
+  std::cout << (myassignstring.c_str()[0]=='a') << std::endl;
+  std::cout << (myassignstring.c_str()[1]=='\0') << std::endl;
+
 
   for(int i=0; i<6; ++i)
   {
@@ -98,8 +107,8 @@ int main()
   std::cout <<(myclearingstring.size()==0) << std::endl;
   std::cout <<(myclearingstring.capacity()==5) << std::endl;
   std::cout <<(myclearingstring.c_str()[0]=='\0') << std::endl;
-  
- 
+
+
 
   string myclearingstring2(p_strNull);
   myclearingstring2.clear();

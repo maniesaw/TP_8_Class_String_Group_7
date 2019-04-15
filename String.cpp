@@ -67,23 +67,23 @@ void string::resize(size_t n, char c) //Cut the String
     a[n+1] = '\0';
     data_ = a;
     size_ = n;
-  } 
+  }
   else if (n > size_){
     int length_char = size_;
     char *a = new char[n];
     for (int bouc =0; bouc<size_; ++bouc){
-      a[bouc] = data_[bouc];     
+      a[bouc] = data_[bouc];
     }
     for (int bouc =size_; bouc<n; ++bouc){
-      a[bouc] = c;  
+      a[bouc] = c;
     }
     delete[] data_;
-    a[n+1] = '\0'; 
+    a[n+1] = '\0';
     data_ = a;
     size_ = n;
     capacity_ = n;
   }
-  
+
 }
 
 bool string::empty() const  //Return if the size of the String is 0.
@@ -130,13 +130,13 @@ size_t string::capacity() const //Return the current memory allocation for the S
 }
 
 
-//Operators = 
+//Operators =
 string& string::operator= (char c) //Assignement of a char
 {
-  char tab[1];
-  tab[0]=c;
-  string thenewstring(tab);
-  return thenewstring;
+  this -> data_[0] = c;
+  this -> data_[1] = '\0';
+  this -> size_ = 1;
+  return *this;
 }
 
 
@@ -204,7 +204,7 @@ string operator+ (const char*   p_lhs, const string& rhs) //Add of a char (by po
 
 }
 
-  
+
 
 
 string operator+ (char lhs, const string& rhs) //Add of a char
@@ -215,7 +215,7 @@ string operator+ (char lhs, const string& rhs) //Add of a char
     int j=0;
     for (i=0; i<=rhs.size(); ++i){
       if(i<rhs.size()){
-        tab[i] =rhs.c_str()[i]; 
+        tab[i] =rhs.c_str()[i];
       }else{
         tab[i] = lhs;
         ++j;
@@ -227,7 +227,7 @@ string operator+ (char lhs, const string& rhs) //Add of a char
     return 0;
   }
 }
-  
+
 
 string operator+ (const string& lhs, const string& rhs) //Add of two strings
 {
